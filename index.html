@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="src/css/styles.css">
+
     <title>Lista de Tarefas</title>
 </head>
 
@@ -14,13 +16,13 @@
     <main class="content">
         <h1>Lista de Tarefas</h1>
 
-        <div class="input">
-            <input type="text" id="add_task">
-            <button type="button"> Adicionar tarefa</button>
-        </div>
+        <form class="task_form">
+            <input type="text" id="add_task" placeholder="Adicionar nova tarefa">
+            <button type="submit" class="btn_task"> Adicionar</button>
+        </form>
 
         <div class="task_list">
-            <ul>
+            <ul class="list">
                 <li>Tarefa 1...</li>
                 <li>Tarefa 2...</li>
                 <li>Tarefa 3...</li>
@@ -28,5 +30,7 @@
         </div>
 
     </main>
+
+    <script src="src/script/script.js"></script>
 </body>
 </html>
