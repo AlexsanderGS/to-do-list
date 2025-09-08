@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="src/css/styles.css">
 
     <title>Lista de Tarefas</title>
@@ -23,9 +29,18 @@
 
         <div class="task_list">
             <ul class="list">
-                <li>Tarefa 1...</li>
-                <li>Tarefa 2...</li>
-                <li>Tarefa 3...</li>
+                <li>
+                    <input type="checkbox" class="task_check">
+                    <span class="task_text">Tarefa 1...</span>
+                </li>
+                <li>
+                    <input type="checkbox" class="task_check">
+                    <span class="task_text">Tarefa 2...</span>
+                </li>
+                <li>
+                    <input type="checkbox" class="task_check">
+                    <span class="task_text">Tarefa 3...</span>
+                </li>
             </ul>
         </div>
 
@@ -33,4 +48,5 @@
 
     <script src="src/script/script.js"></script>
 </body>
+
 </html>
