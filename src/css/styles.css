@@ -87,3 +87,57 @@ body {
     color: #888;
 }
 
+.task_delete_btn {
+    background-color: #ff4d4d; /* Uma cor vermelha */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto; /* Empurra o botão para a direita */
+}
+
+/* Efeito de hover para dar um feedback ao usuário */
+.task_delete_btn:hover {
+    background-color: #ff1a1a;
+}
+
+/* --- Media Query para telas menores que 600px (celulares) --- */
+@media screen and (max-width: 600px) {
+
+    /* Altera o tamanho da fonte e o espaçamento para celular */
+    .content h1 {
+        font-size: 36px;
+        min-height: auto;
+        padding-top: 2rem; /* Adiciona um espaço no topo */
+    }
+
+    /* Ajusta o padding e o espaçamento do formulário */
+    .task_form {
+        flex-direction: column; /* Coloca os itens um abaixo do outro */
+        gap: 15px;
+        padding: 1rem 0.5rem; /* Diminui o padding horizontal */
+    }
+
+    /* Ajusta o padding e as margens dos itens da lista */
+    .list {
+        margin: 10px;
+    }
+
+    .list li {
+        padding: 0.8rem;
+    }
+
+    /* Ajusta o tamanho da fonte do texto da tarefa */
+    .task_text {
+        font-size: 14px;
+    }
+
+    /* O botão de adicionar e o input já estão flexíveis, mas pode ser útil ajustar a altura */
+    .task_form input, .task_form .btn_task {
+        height: 50px;
+    }
+}
+
