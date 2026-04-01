@@ -15,3 +15,41 @@
   font-weight: 400;
   font-display: swap;
 }
+
+:root {
+  /* Background */
+  --background-primary: #f5f7fb;
+  --background-secondary: #ffffff;
+  --background-tertiary: #eef1f6;
+
+  /* Text */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+
+  /* Borders */
+  --border-color: #e5e7eb;
+
+  /* Primary */
+  --color-primary: #5b4df7;
+  --color-secondary: #7c3aed;
+  --gradient-primary: linear-gradient(90deg, #4f46e5, #7c3aed);
+
+  /* Status */
+  --success-bg: #d1fae5;
+  --success-color: #10b981;
+
+  --pending-bg: #dbeafe;
+  --pending-color: #3b82f6;
+
+  --warning-bg: #ffedd5;
+  --warning-color: #f97316;
+
+  --danger-bg: #fee2e2;
+  --danger-color: #ef4444;
+
+  /* UI */
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --radius-default: 12px;
+  --radius-large: 16px;
+}
