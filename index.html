@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      href="./src/assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <title>Lista de Tarefas Online</title>
+  </head>
+  <body>
+    <main class="main-content">
+      <header class="header-content">
+        <img
+          class="header-icon"
+          src="./src/assets/icons/task.svg"
+          alt="ícone de lista de tarefas"
+        />
+        <h1 class="header-title">Lista de Tarefas</h1>
+        <p class="header-text">
+          Organize seu dia com mais foco e produtividade!
+        </p>
+      </header>
+
+      <section class="add-task">
+        <p class="add-task-text">O que você precisa fazer?</p>
+
+        <button class="calendar-button" type="button">
+          <img
+            class="calendar-icon"
+            src="./src/assets/icons/calendar.svg"
+            alt="Ícone de um calendário"
+          />
+          Selecionar dia
+        </button>
+
+        <button class="new-task" type="button">
+          <img src="./src/assets/icons/plus.svg" alt="Ícone +" />
+          Adicionar tarefa
+        </button>
+
+        <form action="" method="post" class="add-task-form">
+          <textarea
+            name="task-name"
+            id="task-name"
+            placeholder="Digite a nova tarefa..."
+          ></textarea>
+          <button class="add-task-btn">Adicionar</button>
+        </form>
+      </section>
+
+      <section class="task-filter">
+        <div class="filter-options">
+          <button class="all-tasks" type="button">
+            <img
+              class="all-tasks-icon"
+              src="./src/assets/icons/list.svg"
+              alt=""
+            />
+            Todas
+          </button>
+          <button class="pending-tasks" type="button">
+            <img
+              class="pending-icon"
+              src="./src/assets/icons/clock.svg"
+              alt=""
+            />
+            Pendentes
+          </button>
+          <button class="completed-tasks" type="button">
+            <img
+              class="complete-icon"
+              src="./src/assets/icons/check.svg"
+              alt=""
+            />
+            Concluídas
+          </button>
+        </div>
+
+        <button class="clear-tasks" type="button">
+          <img class="clear-icon" src="./src/assets/icons/trash.svg" alt="" />
+          Limpar tarefas
+        </button>
+      </section>
+
+      <section class="tasks-list">
+        <ul>
+          <li>
+            <div class="task-content">
+              <input type="checkbox" name="checkbox" />
+              <span class="task-text">Estudar React Hooks</span>
+            </div>
+
+            <div class="list-actions">
+              <button
+                class="edit-task"
+                type="button"
+                aria-label="Editar Tarefa"
+              >
+                <img
+                  class="edit-icon"
+                  src="./src/assets/icons/edit.svg"
+                  alt=""
+                />
+              </button>
+              <button
+                class="delete-task"
+                type="button"
+                aria-label="Excluir tarefa"
+              >
+                <img
+                  class="delete-icon"
+                  src="./src/assets/icons/trash.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <div class="task-content">
+              <input type="checkbox" name="checkbox" />
+              <span class="task-text">Revisar portfólio</span>
+            </div>
+
+            <div class="list-actions">
+              <button class="edit-task" type="button">
+                <img
+                  class="edit-icon"
+                  src="./src/assets/icons/edit.svg"
+                  alt=""
+                />
+              </button>
+              <button class="delete-task" type="button">
+                <img
+                  class="delete-icon"
+                  src="./src/assets/icons/trash.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <div class="task-content">
+              <input type="checkbox" name="checkbox" />
+              <span class="task-text">Criar projeto To-Do List</span>
+            </div>
+
+            <div class="list-actions">
+              <button
+                class="edit-task"
+                type="button"
+                aria-label="Editar tarefa"
+              >
+                <img
+                  class="edit-icon"
+                  src="./src/assets/icons/edit.svg"
+                  alt=""
+                />
+              </button>
+              <button
+                class="delete-task"
+                type="button"
+                aria-label="Excluir tarefa"
+              >
+                <img
+                  class="delete-icon"
+                  src="./src/assets/icons/trash.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </li>
+
+          <li>
+            <div class="task-content">
+              <input type="checkbox" name="checkbox" />
+              <span class="task-text">Organizar projetos</span>
+            </div>
+
+            <div class="list-actions">
+              <button
+                class="edit-task"
+                type="button"
+                aria-label="Editar Tarefa"
+              >
+                <img
+                  class="edit-icon"
+                  src="./src/assets/icons/edit.svg"
+                  alt=""
+                />
+              </button>
+              <button
+                class="delete-task"
+                type="button"
+                aria-label="Excluir tarefa"
+              >
+                <img
+                  class="delete-icon"
+                  src="./src/assets/icons/trash.svg"
+                  alt=""
+                />
+              </button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <img
+          class="lightbulb-icon"
+          src="./src/assets/icons/lightbulb.svg"
+          alt=""
+        />
+        <p class="tip-text">
+          <strong>Dica: </strong>Clique em uma tarefa para marcá-la como
+          concluída. Use o ícone de edição para alterar os detalhes.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
