@@ -53,3 +53,33 @@
   --radius-default: 12px;
   --radius-large: 16px;
 }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  background-color: var(--background-primary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--background-secondary);
+  padding: 1rem;
+  gap: 1.2rem;
+
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-card);
+}
