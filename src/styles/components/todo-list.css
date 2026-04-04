@@ -1,0 +1,34 @@
+.header-content {
+  display: flex;
+  flex-direction: row;
+  background: var(--gradient-primary);
+  align-items: center;
+  border-radius: var(--radius-large) var(--radius-large) 0 0;
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+.header-icon {
+  width: 40px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.header-text {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+}

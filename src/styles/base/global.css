@@ -23,7 +23,7 @@
   --background-tertiary: #eef1f6;
 
   /* Text */
-  --text-primary: #1f2937;
+  --text-primary: #ffffff;
   --text-secondary: #6b7280;
   --text-tertiary: #9ca3af;
 
@@ -33,7 +33,11 @@
   /* Primary */
   --color-primary: #5b4df7;
   --color-secondary: #7c3aed;
-  --gradient-primary: linear-gradient(90deg, #4f46e5, #7c3aed);
+  --gradient-primary: linear-gradient(
+    90deg,
+    rgba(91, 77, 247, 1) 60%,
+    rgba(124, 58, 237, 1) 100%
+  );
 
   /* Status */
   --success-bg: #d1fae5;
@@ -77,7 +81,7 @@ body {
   width: 100%;
   max-width: 320px;
   background-color: var(--background-secondary);
-  padding: 1rem;
+  padding: 0.6rem;
   gap: 1.2rem;
 
   border-radius: var(--radius-large);
