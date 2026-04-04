@@ -29,29 +29,27 @@
       </header>
 
       <section class="add-task">
-        <p class="add-task-text">O que você precisa fazer?</p>
-
-        <button class="calendar-button" type="button">
-          <img
-            class="calendar-icon"
-            src="./src/assets/icons/calendar.svg"
-            alt="Ícone de um calendário"
-          />
-          Selecionar dia
-        </button>
-
-        <button class="new-task" type="button">
-          <img src="./src/assets/icons/plus.svg" alt="Ícone +" />
-          Adicionar tarefa
-        </button>
-
-        <form action="" method="post" class="add-task-form">
-          <textarea
-            name="task-name"
+        <form class="add-task-form">
+          <input
+            type="text"
+            name="task"
             id="task-name"
-            placeholder="Digite a nova tarefa..."
-          ></textarea>
-          <button class="add-task-btn">Adicionar</button>
+            placeholder="O que você precisa fazer?"
+          />
+
+          <button class="calendar-button" type="button">
+            <img
+              class="calendar-icon"
+              src="./src/assets/icons/calendar.svg"
+              alt=""
+            />
+            Selecionar dia
+          </button>
+
+          <button class="add-task-button" type="submit">
+            <img src="./src/assets/icons/plus.svg" alt="" />
+            Adicionar tarefa
+          </button>
         </form>
       </section>
 

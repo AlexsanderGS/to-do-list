@@ -54,7 +54,7 @@
 
   /* UI */
   --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
-  --radius-default: 12px;
+  --radius-default: 10px;
   --radius-large: 16px;
 }
 
