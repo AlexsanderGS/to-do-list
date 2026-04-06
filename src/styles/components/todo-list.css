@@ -103,3 +103,71 @@
   width: 20px;
   height: 20px;
 }
+
+.task-filter {
+  display: flex;
+  padding: 0.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background-color: var(--background-secondary);
+}
+
+.filter-options {
+  display: flex;
+  width: 100%;
+  gap: 0.25rem;
+}
+
+.filter-options button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.filter-options button.active {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+}
+
+.all-tasks-icon,
+.pending-icon,
+.complete-icon {
+  display: none;
+}
+
+.clear-tasks {
+  display: flex;
+  padding: 0.5rem;
+  justify-content: flex-end;
+}
+
+.clear-tasks-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.785rem;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+
+  background: var(--background-tertiary);
+  color: var(--text-secondary);
+}
+
+.clear-icon {
+  width: 20px;
+  height: 20px;
+}
