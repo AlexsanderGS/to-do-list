@@ -57,6 +57,12 @@
   --shadow-soft: 0 5px 10px rgba(0, 0, 0, 0.12);
   --radius-default: 10px;
   --radius-large: 16px;
+
+  /* FOOTER */
+  --info-bg: #e7f0fb;
+  --info-border: #c9d8ee;
+  --info-text: #3b6ea8;
+  --info-accent: #facc15;
 }
 
 *,
