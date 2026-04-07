@@ -53,7 +53,8 @@
   --danger-color: #ef4444;
 
   /* UI */
-  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.2);
+  --shadow-soft: 0 5px 10px rgba(0, 0, 0, 0.12);
   --radius-default: 10px;
   --radius-large: 16px;
 }

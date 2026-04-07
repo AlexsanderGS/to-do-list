@@ -35,9 +35,9 @@
 
 .add-task {
   padding: 0.6rem;
-  border: 1px solid var(--border-color);
   border-radius: var(--radius-default);
   background-color: var(--background-secondary);
+  box-shadow: var(--shadow-soft);
 }
 
 .add-task-form {
@@ -107,9 +107,10 @@
 .task-filter {
   display: flex;
   padding: 0.25rem;
-  border: 1px solid var(--border-color);
+
   border-radius: 999px;
   background-color: var(--background-secondary);
+  box-shadow: var(--shadow-soft);
 }
 
 .filter-options {
@@ -155,19 +156,118 @@
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.785rem;
+  padding: 0.5rem 0.75rem;
 
   font-size: 14px;
   font-weight: 400;
 
-  border: 1px solid var(--border-color);
+  border: none;
   border-radius: 8px;
 
-  background: var(--background-tertiary);
-  color: var(--text-secondary);
+  background: transparent;
+  color: var(--danger-color);
 }
 
 .clear-icon {
   width: 20px;
   height: 20px;
+  filter: invert(27%) sepia(94%) saturate(7463%) hue-rotate(1deg)
+    brightness(108%) contrast(116%);
+}
+
+.tasks-list {
+  width: 100%;
+}
+
+.tasks-list ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 0.75rem;
+  border-radius: 8px;
+  background: var(--background-secondary);
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-soft);
+  border-left: 4px solid green;
+}
+
+.task-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.task-content input {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.task-meta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task-meta img {
+  width: 16px;
+  height: 16px;
+}
+
+.task-date {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.task-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.list-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.list-actions button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--background-tertiary);
+}
+
+.edit-task img {
+  width: 18px;
+  height: 18px;
+}
+
+.delete-task img {
+  width: 18px;
+  height: 18px;
+  filter: invert(27%) sepia(94%) saturate(7463%) hue-rotate(1deg)
+    brightness(108%) contrast(116%);
 }
