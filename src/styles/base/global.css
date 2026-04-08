@@ -75,11 +75,11 @@ body {
   font-family: "Noto Sans", sans-serif;
   background-color: var(--background-primary);
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding: 3rem 1rem;
+  padding: 1rem;
 }
 
 .main-content {
@@ -93,4 +93,13 @@ body {
 
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    max-width: 768px;
+    padding: 2rem;
+    gap: 1.3rem;
+    margin: 0 auto;
+  }
 }
