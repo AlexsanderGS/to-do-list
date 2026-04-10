@@ -76,7 +76,7 @@ body {
   background-color: var(--background-primary);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   min-height: 100vh;
   padding: 1rem;
@@ -96,6 +96,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  body {
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
   .main-content {
     max-width: 768px;
     padding: 2rem;
