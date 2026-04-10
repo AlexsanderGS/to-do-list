@@ -217,11 +217,15 @@
 }
 
 .task-content input {
-  flex-shrink: 0;
-  margin-top: 0.2rem;
-  width: 15px;
-  height: 15px;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #555;
   border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
 }
 
 .task-info {
@@ -431,5 +435,9 @@
   .clear-tasks-button {
     font-size: 16px;
     font-weight: 500;
+  }
+
+  .task-item {
+    flex-direction: row;
   }
 }
