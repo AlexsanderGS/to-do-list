@@ -391,4 +391,45 @@
     height: 52px;
     padding: 0 1rem;
   }
+
+  .filter-options {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .filter-options button {
+    font-size: 16px;
+    font-weight: 500;
+    gap: 0.25rem;
+    padding: 0.55rem 0.6rem;
+  }
+
+  .filter-options img {
+    display: block;
+    width: 20px;
+    height: 20px;
+  }
+
+  .all-tasks-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .pending-icon {
+    filter: invert(61%) sepia(83%) saturate(1000%) hue-rotate(1deg)
+      brightness(101%) contrast(101%);
+  }
+
+  .complete-icon {
+    filter: invert(57%) sepia(66%) saturate(500%) hue-rotate(85deg)
+      brightness(95%) contrast(90%);
+  }
+
+  .clear-tasks {
+    margin-right: 1.2rem;
+  }
+
+  .clear-tasks-button {
+    font-size: 16px;
+    font-weight: 500;
+  }
 }
