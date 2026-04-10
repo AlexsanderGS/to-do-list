@@ -382,7 +382,6 @@
     padding: 0 1rem;
     border: none;
     background: transparent;
-    color: var(--text-primary);
   }
 
   .add-task-actions {
