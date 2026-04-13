@@ -61,6 +61,11 @@
   background-color: var(--background-secondary);
   font-family: inherit;
   font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.add-task-form input::placeholder {
+  color: var(--text-secondary);
 }
 
 .add-task-actions {
@@ -201,7 +206,7 @@
   flex-direction: column;
   padding: 1rem;
   gap: 0.75rem;
-  border-radius: 8px;
+  border-radius: var(--radius-default);
   background: var(--background-secondary);
   color: var(--text-secondary);
   box-shadow: var(--shadow-soft);
@@ -218,30 +223,29 @@
   appearance: none;
   width: 30px;
   height: 30px;
-  border: 2px solid #555;
+  border: 2px solid var(--text-secondary);
   border-radius: 50%;
   outline: none;
   cursor: pointer;
-  vertical-align: middle;
+  flex-shrink: 0;
   position: relative;
 }
 
 .task-info {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .task-text {
   font-size: 16px;
   font-weight: 500;
-  color: var(--text-secondary);
-  line-height: 1.2;
+  color: var(--text-primary);
+  line-height: 1.3;
 }
 
 .task-meta {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
 }
@@ -267,10 +271,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.55rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: #f1f5f9;
+  border-radius: var(--radius-default);
+  background: var(--background-tertiary);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.list-actions button:hover {
+  background-color: #e8edf4;
+  transform: translateY(-1px);
 }
 
 .edit-task img {
@@ -311,7 +323,7 @@
   gap: 0.25rem;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 1.35;
   color: var(--info-text);
 }
 
@@ -319,14 +331,31 @@
   font-weight: 600;
 }
 
+.calendar-button,
+.add-task-button,
+.filter-options button,
+.clear-tasks-button,
+.list-actions button {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.calendar-button:hover,
+.clear-tasks-button:hover,
+.list-actions button:hover {
+  opacity: 0.9;
+}
+
+.add-task-button:hover,
+.filter-options button.active:hover {
+  transform: translateY(-1px);
+}
+
 @media (min-width: 768px) {
   .header-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     background: var(--background-secondary);
     padding: 1.5rem 1.3rem;
+    gap: 0.5rem;
   }
 
   .header-top {
@@ -352,7 +381,7 @@
   .header-title {
     font-size: 32px;
     font-weight: 600;
-    color: #000000;
+    color: var(--text-primary);
   }
 
   .header-text {
@@ -360,7 +389,7 @@
     font-size: 16px;
     font-weight: 400;
     color: var(--text-secondary);
-    line-height: 1.2;
+    line-height: 1.4;
   }
 
   .add-task {
@@ -392,18 +421,29 @@
   .add-task-button {
     height: 52px;
     padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .task-filter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
   }
 
   .filter-options {
-    gap: 0.5rem;
-    padding: 0.5rem;
+    width: auto;
+    flex: 1;
+    gap: 0.6rem;
+    padding: 0;
   }
 
   .filter-options button {
-    font-size: 16px;
+    flex: 0 1 auto;
+    font-size: 15px;
     font-weight: 500;
     gap: 0.25rem;
-    padding: 0.55rem 0.6rem;
+    padding: 0.55rem 0.75rem;
   }
 
   .filter-options img {
@@ -427,11 +467,12 @@
   }
 
   .clear-tasks {
-    margin-right: 1.2rem;
+    padding: 0;
+    margin: 0;
   }
 
   .clear-tasks-button {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
   }
 
@@ -439,12 +480,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0.825rem;
+    padding: 0.825rem 1rem;
     gap: 1rem;
   }
 
   .task-content {
-    display: flex;
     align-items: center;
     gap: 0.875rem;
     flex: 1;
@@ -458,7 +498,6 @@
 
   .task-text {
     font-size: 18px;
-    font-weight: 500;
     line-height: 1.4;
   }
 
@@ -475,13 +514,10 @@
 
   .task-date {
     font-size: 12px;
-    color: var(--text-secondary);
   }
 
   .list-actions {
-    display: flex;
-    justify-content: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     flex-shrink: 0;
   }
 
@@ -491,6 +527,7 @@
 
   .footer {
     align-items: center;
+    justify-content: flex-start;
   }
 
   .lightbulb-icon {
@@ -510,17 +547,7 @@
 }
 
 @media (min-width: 1024px) {
-  .clear-tasks {
-    margin-right: 3.7rem;
-  }
-
   .footer {
     justify-content: center;
-  }
-}
-
-@media (min-width: 1440px) {
-  .clear-tasks {
-    margin-right: 8.3rem;
   }
 }
