@@ -1,5 +1,6 @@
 const html = document.querySelector("html");
 
+/* DOM ELEMENT SELECTION */
 const formTask = document.querySelector(".add-task-form");
 const input = document.querySelector("#task-name");
 const ulTask = document.querySelector(".tasks-items");
@@ -20,6 +21,7 @@ function createElementTask(task) {
   const listInput = document.createElement("input");
   listInput.type = "checkbox";
   listInput.classList.add("task-checkbox");
+  listInput.checked = task.completed;
 
   const taskInfo = document.createElement("div");
   taskInfo.classList.add("task-info");
@@ -69,6 +71,21 @@ function createElementTask(task) {
 
   list.append(taskContent, listActions);
 
+  list.classList.add("pending");
+
+  listInput.addEventListener("change", () => {
+    task.completed = listInput.checked;
+
+    saveTasks();
+
+    list.classList.toggle("completed", task.completed);
+    list.classList.toggle("pending", !task.completed);
+  });
+
+  if (task.completed) {
+    list.classList.add("completed");
+  }
+
   return list;
 }
 
@@ -89,6 +106,7 @@ formTask.addEventListener("submit", (event) => {
   const task = {
     description,
     date: "",
+    completed: false,
   };
 
   tasksList.push(task);

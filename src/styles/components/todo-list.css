@@ -210,6 +210,13 @@
   background: var(--background-secondary);
   color: var(--text-secondary);
   box-shadow: var(--shadow-soft);
+}
+
+.task-item.pending {
+  border-left: 4px solid var(--warning-color);
+}
+
+.task-item.completed {
   border-left: 4px solid var(--success-color);
 }
 
@@ -223,12 +230,37 @@
   appearance: none;
   width: 30px;
   height: 30px;
-  border: 2px solid var(--text-secondary);
+  border: 1px solid var(--text-secondary);
   border-radius: 50%;
   outline: none;
   cursor: pointer;
   flex-shrink: 0;
   position: relative;
+  transition: all 0.2s ease;
+}
+
+.task-content input:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.task-item.completed input {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+}
+
+.task-item.completed {
+  opacity: 0.85;
 }
 
 .task-info {
@@ -242,6 +274,7 @@
   font-weight: 500;
   color: var(--text-primary);
   line-height: 1.3;
+  transition: all 0.2s ease;
 }
 
 .task-meta {
