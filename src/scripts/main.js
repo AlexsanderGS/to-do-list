@@ -11,7 +11,7 @@ function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasksList));
 }
 
-function createElementTask(task) {
+function createElementTask(task, index) {
   const list = document.createElement("li");
   list.classList.add("task-item");
 
@@ -86,11 +86,17 @@ function createElementTask(task) {
     list.classList.add("completed");
   }
 
+  deleteButton.addEventListener("click", () => {
+    tasksList.splice(index, 1);
+    saveTasks();
+    list.remove();
+  });
+
   return list;
 }
 
-function renderTask(task) {
-  const elementTask = createElementTask(task);
+function renderTask(task, index) {
+  const elementTask = createElementTask(task, index);
   ulTask.append(elementTask);
 }
 
@@ -117,6 +123,6 @@ formTask.addEventListener("submit", (event) => {
   input.focus();
 });
 
-tasksList.forEach((task) => {
-  renderTask(task);
+tasksList.forEach((task, index) => {
+  renderTask(task, index);
 });
