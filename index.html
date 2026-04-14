@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="./src/styles/main.css" />
 
+    <script src="./src/scripts/main.js" defer></script>
+
     <link
       rel="shortcut icon"
       href="./src/assets/images/favicon.ico"
@@ -97,87 +99,7 @@
       </section>
 
       <section class="tasks-list">
-        <ul>
-          <li class="task-item">
-            <div class="task-content">
-              <input type="checkbox" name="checkbox" />
-
-              <div class="task-info">
-                <span class="task-text">Estudar React Hooks</span>
-                <div class="task-meta">
-                  <img src="./src/assets/icons/calendar.svg" alt="" />
-                  <span class="task-date">24/04</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="list-actions">
-              <button
-                class="edit-task"
-                type="button"
-                aria-label="Editar Tarefa"
-              >
-                <img
-                  class="edit-icon"
-                  src="./src/assets/icons/edit.svg"
-                  alt=""
-                />
-              </button>
-
-              <button
-                class="delete-task"
-                type="button"
-                aria-label="Excluir tarefa"
-              >
-                <img
-                  class="delete-icon"
-                  src="./src/assets/icons/trash.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-          </li>
-
-          <li class="task-item">
-            <div class="task-content">
-              <input type="checkbox" name="checkbox" />
-
-              <div class="task-info">
-                <span class="task-text">Estudar TypeScript</span>
-                <div class="task-meta">
-                  <img src="./src/assets/icons/calendar.svg" alt="" />
-                  <span class="task-date">24/04</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="list-actions">
-              <button
-                class="edit-task"
-                type="button"
-                aria-label="Editar Tarefa"
-              >
-                <img
-                  class="edit-icon"
-                  src="./src/assets/icons/edit.svg"
-                  alt=""
-                />
-              </button>
-
-              <button
-                class="delete-task"
-                type="button"
-                aria-label="Excluir tarefa"
-              >
-                <img
-                  class="delete-icon"
-                  src="./src/assets/icons/trash.svg"
-                  alt=""
-                />
-              </button>
-            </div>
-          </li>
-        </ul>
+        <ul class="tasks-items"></ul>
       </section>
 
       <footer class="footer">
