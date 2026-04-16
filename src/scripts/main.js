@@ -1,16 +1,47 @@
-const html = document.querySelector("html");
-
-/* DOM ELEMENT SELECTION */
+/* =========================
+   DOM ELEMENT SELECTION
+========================= */
 const formTask = document.querySelector(".add-task-form");
 const input = document.querySelector("#task-name");
 const ulTask = document.querySelector(".tasks-items");
 
-const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
+const editModal = document.querySelector(".edit-modal");
+const modalInput = document.querySelector("#modal-task-name");
+const editForm = document.querySelector(".edit-form");
+const cancelEdit = document.querySelector(".cancel-edit");
 
+/* =========================
+   APPLICATION DATA
+========================= */
+const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
+let currentTaskIndex = null;
+
+/* =========================
+   LOCAL STORAGE
+========================= */
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasksList));
 }
 
+/* =========================
+   MODAL CONTROL
+========================= */
+function openEditModal(task, index) {
+  currentTaskIndex = index;
+  modalInput.value = task.description;
+  editModal.classList.remove("hidden");
+  modalInput.focus();
+}
+
+function closeEditModal() {
+  editModal.classList.add("hidden");
+  modalInput.value = "";
+  currentTaskIndex = null;
+}
+
+/* =========================
+   TASK CREATION
+========================= */
 function createElementTask(task, index) {
   const list = document.createElement("li");
   list.classList.add("task-item");
@@ -68,38 +99,58 @@ function createElementTask(task, index) {
   taskInfo.append(spanList, taskMeta);
   taskContent.append(listInput, taskInfo);
   listActions.append(editButton, deleteButton);
-
   list.append(taskContent, listActions);
 
-  list.classList.add("pending");
+  /* initial visual state */
+  list.classList.toggle("completed", task.completed);
+  list.classList.toggle("pending", !task.completed);
 
+  /* complete task */
   listInput.addEventListener("change", () => {
     task.completed = listInput.checked;
 
-    saveTasks();
-
     list.classList.toggle("completed", task.completed);
     list.classList.toggle("pending", !task.completed);
+
+    saveTasks();
   });
 
-  if (task.completed) {
-    list.classList.add("completed");
-  }
-
+  /* delete task */
   deleteButton.addEventListener("click", () => {
     tasksList.splice(index, 1);
     saveTasks();
-    list.remove();
+    renderAllTasks();
+  });
+
+  /* open edit modal */
+  editButton.addEventListener("click", () => {
+    openEditModal(task, index);
   });
 
   return list;
 }
 
+/* =========================
+   RENDER
+========================= */
 function renderTask(task, index) {
   const elementTask = createElementTask(task, index);
   ulTask.append(elementTask);
 }
 
+function renderAllTasks() {
+  ulTask.innerHTML = "";
+
+  tasksList.forEach((task, index) => {
+    renderTask(task, index);
+  });
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+/* add new task */
 formTask.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -117,12 +168,35 @@ formTask.addEventListener("submit", (event) => {
 
   tasksList.push(task);
   saveTasks();
-  renderTask(task);
+  renderAllTasks();
 
   input.value = "";
   input.focus();
 });
 
-tasksList.forEach((task, index) => {
-  renderTask(task, index);
+/* cancel edit */
+cancelEdit.addEventListener("click", () => {
+  closeEditModal();
 });
+
+/* save edit */
+editForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const newValue = modalInput.value.trim();
+
+  if (!newValue || currentTaskIndex === null) {
+    return;
+  }
+
+  tasksList[currentTaskIndex].description = newValue;
+
+  saveTasks();
+  renderAllTasks();
+  closeEditModal();
+});
+
+/* =========================
+   INITIAL LOAD
+========================= */
+renderAllTasks();
