@@ -117,5 +117,26 @@
         </p>
       </footer>
     </main>
+
+    <div class="edit-modal hidden" aria-hidden="true">
+      <div class="edit-modal-content">
+        <form class="edit-form">
+          <label for="modal-task-name">Editar tarefa</label>
+
+          <input
+            type="text"
+            name="modalText"
+            id="modal-task-name"
+            placeholder="Atualize a sua tarefa..."
+            required
+          />
+
+          <div class="modal-actions">
+            <button class="cancel-edit" type="button">Cancelar</button>
+            <button class="save-edit" type="submit">Salvar</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
