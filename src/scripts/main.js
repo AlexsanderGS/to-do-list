@@ -9,12 +9,17 @@ const editModal = document.querySelector(".edit-modal");
 const modalInput = document.querySelector("#modal-task-name");
 const editForm = document.querySelector(".edit-form");
 const cancelEdit = document.querySelector(".cancel-edit");
+const allTasksButton = document.querySelector(".all-tasks");
+const pendingTasksButton = document.querySelector(".pending-tasks");
+const completedTasksButton = document.querySelector(".completed-tasks");
+const clearAllTasksButton = document.querySelector(".clear-tasks-button");
 
 /* =========================
    APPLICATION DATA
 ========================= */
 const tasksList = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentTaskIndex = null;
+let currentFilter = "all";
 
 /* =========================
    LOCAL STORAGE
@@ -113,6 +118,7 @@ function createElementTask(task, index) {
     list.classList.toggle("pending", !task.completed);
 
     saveTasks();
+    renderAllTasks();
   });
 
   /* delete task */
@@ -142,8 +148,24 @@ function renderAllTasks() {
   ulTask.innerHTML = "";
 
   tasksList.forEach((task, index) => {
-    renderTask(task, index);
+    const shouldRender =
+      currentFilter === "all" ||
+      (currentFilter === "pending" && !task.completed) ||
+      (currentFilter === "completed" && task.completed);
+
+    if (shouldRender) {
+      renderTask(task, index);
+    }
   });
+}
+
+function updateActiveFilterButton() {
+  allTasksButton.classList.toggle("active", currentFilter === "all");
+  pendingTasksButton.classList.toggle("active", currentFilter === "pending");
+  completedTasksButton.classList.toggle(
+    "active",
+    currentFilter === "completed",
+  );
 }
 
 /* =========================
@@ -196,7 +218,42 @@ editForm.addEventListener("submit", (event) => {
   closeEditModal();
 });
 
+/* all tasks filter */
+allTasksButton.addEventListener("click", () => {
+  currentFilter = "all";
+  updateActiveFilterButton();
+  renderAllTasks();
+});
+
+/* pending tasks filter */
+pendingTasksButton.addEventListener("click", () => {
+  currentFilter = "pending";
+  updateActiveFilterButton();
+  renderAllTasks();
+});
+
+/* completed tasks filter */
+completedTasksButton.addEventListener("click", () => {
+  currentFilter = "completed";
+  updateActiveFilterButton();
+  renderAllTasks();
+});
+
+/* clear all tasks */
+clearAllTasksButton.addEventListener("click", () => {
+  const confirmDelete = confirm(
+    "Essa ação irá apagar todas as tarefas. Deseja continuar?",
+  );
+
+  if (!confirmDelete) return;
+
+  tasksList.length = 0;
+  saveTasks();
+  renderAllTasks();
+});
+
 /* =========================
    INITIAL LOAD
 ========================= */
+updateActiveFilterButton();
 renderAllTasks();
