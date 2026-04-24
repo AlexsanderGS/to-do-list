@@ -13,6 +13,7 @@ const allTasksButton = document.querySelector(".all-tasks");
 const pendingTasksButton = document.querySelector(".pending-tasks");
 const completedTasksButton = document.querySelector(".completed-tasks");
 const clearAllTasksButton = document.querySelector(".clear-tasks-button");
+const taskDateInput = document.querySelector("#task-date");
 
 /* =========================
    APPLICATION DATA
@@ -75,7 +76,12 @@ function createElementTask(task, index) {
 
   const dateSpan = document.createElement("span");
   dateSpan.classList.add("task-date");
-  dateSpan.textContent = task.date || "--/--";
+  if (task.date) {
+    dateSpan.textContent = formatDate(task.date);
+  } else {
+    dateSpan.textContent = "--/--";
+    dateSpan.classList.add("empty");
+  }
 
   const listActions = document.createElement("div");
   listActions.classList.add("list-actions");
@@ -168,6 +174,15 @@ function updateActiveFilterButton() {
   );
 }
 
+function formatDate(dateString) {
+  if (!dateString) {
+    return "";
+  }
+
+  const [year, month, day] = dateString.split("-");
+  return `${day}/${month}`;
+}
+
 /* =========================
    EVENTS
 ========================= */
@@ -184,7 +199,7 @@ formTask.addEventListener("submit", (event) => {
 
   const task = {
     description,
-    date: "",
+    date: taskDateInput.value,
     completed: false,
   };
 
@@ -193,6 +208,7 @@ formTask.addEventListener("submit", (event) => {
   renderAllTasks();
 
   input.value = "";
+  taskDateInput.value = "";
   input.focus();
 });
 

@@ -87,9 +87,23 @@
 }
 
 #task-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 100%;
   padding: 0 0.9rem;
+
   background-color: var(--background-tertiary);
-  color: var(--text-secondary);
+  color: var(--text-primary);
+
+  font-family: inherit;
+  font-size: 14px;
+
   cursor: pointer;
 }
 
@@ -664,7 +678,7 @@
   }
 
   .task-date {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .list-actions {
