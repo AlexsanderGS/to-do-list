@@ -14,6 +14,7 @@ const pendingTasksButton = document.querySelector(".pending-tasks");
 const completedTasksButton = document.querySelector(".completed-tasks");
 const clearAllTasksButton = document.querySelector(".clear-tasks-button");
 const taskDateInput = document.querySelector("#task-date");
+const modalDateInput = document.querySelector("#modal-task-date");
 
 /* =========================
    APPLICATION DATA
@@ -34,7 +35,10 @@ function saveTasks() {
 ========================= */
 function openEditModal(task, index) {
   currentTaskIndex = index;
+
   modalInput.value = task.description;
+  modalDateInput.value = task.date || "";
+
   editModal.classList.remove("hidden");
   modalInput.focus();
 }
@@ -42,6 +46,7 @@ function openEditModal(task, index) {
 function closeEditModal() {
   editModal.classList.add("hidden");
   modalInput.value = "";
+  modalDateInput.value = "";
   currentTaskIndex = null;
 }
 
@@ -228,6 +233,7 @@ editForm.addEventListener("submit", (event) => {
   }
 
   tasksList[currentTaskIndex].description = newValue;
+  tasksList[currentTaskIndex].date = modalDateInput.value;
 
   saveTasks();
   renderAllTasks();
