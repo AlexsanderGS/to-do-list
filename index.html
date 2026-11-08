@@ -45,12 +45,21 @@
           />
 
           <div class="add-task-actions">
-            <input
-              type="date"
-              name="date"
-              id="task-date"
-              aria-label="Selecionar dia"
-            />
+            <div class="task-date-time">
+              <input
+                type="date"
+                name="date"
+                id="task-date"
+                aria-label="Selecionar dia"
+              />
+
+              <input
+                type="time"
+                name="time"
+                id="task-time"
+                aria-label="Selecionar horário"
+              />
+            </div>
 
             <button class="add-task-button" type="submit">
               <img src="./src/assets/icons/plus.svg" alt="" />
@@ -130,6 +139,9 @@
 
           <label for="modal-task-date">Data da tarefa</label>
           <input type="date" name="modalDate" id="modal-task-date" />
+
+          <label for="modal-task-time">Horário da tarefa</label>
+          <input type="time" name="modalTime" id="modal-task-time" />
 
           <div class="modal-actions">
             <button class="cancel-edit" type="button">Cancelar</button>

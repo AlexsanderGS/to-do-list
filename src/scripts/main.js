@@ -15,6 +15,8 @@ const completedTasksButton = document.querySelector(".completed-tasks");
 const clearAllTasksButton = document.querySelector(".clear-tasks-button");
 const taskDateInput = document.querySelector("#task-date");
 const modalDateInput = document.querySelector("#modal-task-date");
+const taskTimeInput = document.querySelector("#task-time");
+const modalTimeInput = document.querySelector("#modal-task-time");
 
 /* =========================
    APPLICATION DATA
@@ -38,6 +40,7 @@ function openEditModal(task, index) {
 
   modalInput.value = task.description;
   modalDateInput.value = task.date || "";
+  modalTimeInput.value = task.time || "";
 
   editModal.classList.remove("hidden");
   modalInput.focus();
@@ -47,6 +50,7 @@ function closeEditModal() {
   editModal.classList.add("hidden");
   modalInput.value = "";
   modalDateInput.value = "";
+  modalTimeInput.value = "";
   currentTaskIndex = null;
 }
 
@@ -88,6 +92,14 @@ function createElementTask(task, index) {
     dateSpan.classList.add("empty");
   }
 
+  const clockIcon = document.createElement("img");
+  clockIcon.setAttribute("src", "./src/assets/icons/clock.svg");
+  clockIcon.setAttribute("alt", "");
+
+  const timeSpan = document.createElement("span");
+  timeSpan.classList.add("task-time");
+  timeSpan.textContent = task.time || "";
+
   const listActions = document.createElement("div");
   listActions.classList.add("list-actions");
 
@@ -112,6 +124,10 @@ function createElementTask(task, index) {
   deleteButton.append(deleteIcon);
 
   taskMeta.append(calendarIcon, dateSpan);
+
+  if (task.time) {
+    taskMeta.append(clockIcon, timeSpan);
+  }
   taskInfo.append(spanList, taskMeta);
   taskContent.append(listInput, taskInfo);
   listActions.append(editButton, deleteButton);
@@ -158,7 +174,41 @@ function renderTask(task, index) {
 function renderAllTasks() {
   ulTask.innerHTML = "";
 
-  tasksList.forEach((task, index) => {
+  const orderedTasks = tasksList
+    .map((task, index) => ({ task, index }))
+    .sort((a, b) => {
+      const dateA = a.task.date || "";
+      const dateB = b.task.date || "";
+
+      // Tarefas sem data ficam no final
+      if (!dateA && !dateB) {
+        return a.index - b.index;
+      }
+
+      if (!dateA) return 1;
+      if (!dateB) return -1;
+
+      // Ordena primeiro pela data
+      if (dateA !== dateB) {
+        return dateA.localeCompare(dateB);
+      }
+
+      const timeA = a.task.time || "";
+      const timeB = b.task.time || "";
+
+      // Sem horário vem antes de tarefas com horário
+      if (!timeA && !timeB) {
+        return a.index - b.index;
+      }
+
+      if (!timeA) return -1;
+      if (!timeB) return 1;
+
+      // Ordena pelo horário quando a data é igual
+      return timeA.localeCompare(timeB) || a.index - b.index;
+    });
+
+  orderedTasks.forEach(({ task, index }) => {
     const shouldRender =
       currentFilter === "all" ||
       (currentFilter === "pending" && !task.completed) ||
@@ -205,6 +255,7 @@ formTask.addEventListener("submit", (event) => {
   const task = {
     description,
     date: taskDateInput.value,
+    time: taskTimeInput.value,
     completed: false,
   };
 
@@ -214,6 +265,7 @@ formTask.addEventListener("submit", (event) => {
 
   input.value = "";
   taskDateInput.value = "";
+  taskTimeInput.value = "";
   input.focus();
 });
 
@@ -234,6 +286,7 @@ editForm.addEventListener("submit", (event) => {
 
   tasksList[currentTaskIndex].description = newValue;
   tasksList[currentTaskIndex].date = modalDateInput.value;
+  tasksList[currentTaskIndex].time = modalTimeInput.value;
 
   saveTasks();
   renderAllTasks();
