@@ -35,11 +35,11 @@
 
 Este projeto foi desenvolvido com o objetivo de:
 
-* Praticar manipulação do DOM com JavaScript
-* Trabalhar com eventos e estado da aplicação
-* Implementar um CRUD completo
-* Aplicar conceitos de responsividade (mobile first)
-* Criar uma interface limpa e funcional
+- Praticar manipulação do DOM com JavaScript
+- Trabalhar com eventos e estado da aplicação
+- Implementar um CRUD completo
+- Aplicar conceitos de responsividade (mobile first)
+- Criar uma interface limpa e funcional
 
 ---
 
@@ -47,49 +47,48 @@ Este projeto foi desenvolvido com o objetivo de:
 
 ### 📝 Tarefas
 
-* Adicionar novas tarefas
-* Editar tarefas existentes (via modal)
-* Excluir tarefas
-* Marcar como concluída ou pendente
+- Adicionar novas tarefas
+- Editar tarefas existentes (via modal)
+- Excluir tarefas
+- Marcar como concluída ou pendente
 
 ### 📅 Data
 
-* Adicionar data opcional à tarefa
-* Editar ou remover data no modal
-* Exibição formatada (dd/mm)
-* Indicador visual quando não há data
+- Adicionar data opcional à tarefa
+- Editar ou remover data no modal
+- Exibição formatada (dd/mm)
+- Indicador visual quando não há data
 
 ### 🔎 Filtros
 
-* Visualizar todas as tarefas
-* Filtrar por tarefas pendentes
-* Filtrar por tarefas concluídas
+- Visualizar todas as tarefas
+- Filtrar por tarefas pendentes
+- Filtrar por tarefas concluídas
 
 ### 🧹 Limpeza
 
-* Remover todas as tarefas com um clique
+- Remover todas as tarefas com um clique
 
 ### 💾 Persistência
 
-* Armazenamento no **LocalStorage**
-* Dados mantidos mesmo após recarregar a página
+- Armazenamento no **LocalStorage**
+- Dados mantidos mesmo após recarregar a página
 
 ### 📱 Responsividade
 
-* Layout adaptado para:
-
-  * Mobile
-  * Tablet
-  * Desktop
+- Layout adaptado para:
+  - Mobile
+  - Tablet
+  - Desktop
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-* HTML5
-* CSS3
-* JavaScript (Vanilla JS)
-* LocalStorage API
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+- LocalStorage API
 
 ---
 
@@ -115,13 +114,13 @@ Este projeto foi desenvolvido com o objetivo de:
 
 ## 🧠 Conceitos aplicados
 
-* Manipulação de elementos com `createElement`
-* Controle de estado com variáveis (`currentFilter`, `currentTaskIndex`)
-* Renderização dinâmica da interface
-* Separação de responsabilidades (funções específicas)
-* Uso de `localStorage` para persistência
-* Formatação de dados (datas)
-* Eventos (`click`, `submit`, `change`)
+- Manipulação de elementos com `createElement`
+- Controle de estado com variáveis (`currentFilter`, `currentTaskIndex`)
+- Renderização dinâmica da interface
+- Separação de responsabilidades (funções específicas)
+- Uso de `localStorage` para persistência
+- Formatação de dados (datas)
+- Eventos (`click`, `submit`, `change`)
 
 ---
 
@@ -129,8 +128,8 @@ Este projeto foi desenvolvido com o objetivo de:
 
 Desenvolvido por **Alexsander Galvão**
 
-* GitHub: https://github.com/AlexsanderGS
-* LinkedIn: www.linkedin.com/in/alexsander-galvao
+- GitHub: https://github.com/AlexsanderGS
+- LinkedIn: www.linkedin.com/in/alexsander-galvao
 
 ---
 
