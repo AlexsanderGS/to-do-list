@@ -16,6 +16,8 @@ const clearAllTasksButton = document.querySelector(".clear-tasks-button");
 const taskDateInput = document.querySelector("#task-date");
 const modalDateInput = document.querySelector("#modal-task-date");
 const taskTimeInput = document.querySelector("#task-time");
+const dateWrapper = document.querySelector(".date-input-wrapper");
+const timeWrapper = document.querySelector(".time-input-wrapper");
 const modalTimeInput = document.querySelector("#modal-task-time");
 
 /* =========================
@@ -325,6 +327,19 @@ clearAllTasksButton.addEventListener("click", () => {
   tasksList.length = 0;
   saveTasks();
   renderAllTasks();
+});
+
+/* Open native date and time pickers */
+dateWrapper.addEventListener("click", () => {
+  if (typeof taskDateInput.showPicker === "function") {
+    taskDateInput.showPicker();
+  }
+});
+
+timeWrapper.addEventListener("click", () => {
+  if (typeof taskTimeInput.showPicker === "function") {
+    taskTimeInput.showPicker();
+  }
 });
 
 /* =========================

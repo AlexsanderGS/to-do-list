@@ -46,19 +46,27 @@
 
           <div class="add-task-actions">
             <div class="task-date-time">
-              <input
-                type="date"
-                name="date"
-                id="task-date"
-                aria-label="Selecionar dia"
-              />
+              <div class="date-input-wrapper">
+                <img src="./src/assets/icons/calendar.svg" alt="" />
 
-              <input
-                type="time"
-                name="time"
-                id="task-time"
-                aria-label="Selecionar horário"
-              />
+                <input
+                  type="date"
+                  name="date"
+                  id="task-date"
+                  aria-label="Selecionar dia"
+                />
+              </div>
+
+              <div class="time-input-wrapper">
+                <img src="./src/assets/icons/clock.svg" alt="" />
+
+                <input
+                  type="time"
+                  name="time"
+                  id="task-time"
+                  aria-label="Selecionar horário"
+                />
+              </div>
             </div>
 
             <button class="add-task-button" type="submit">

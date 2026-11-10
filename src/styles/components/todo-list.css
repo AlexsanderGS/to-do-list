@@ -1,7 +1,6 @@
 /* =========================
    HEADER
 ========================= */
-
 .header-content {
   display: flex;
   flex-direction: column;
@@ -57,7 +56,6 @@
 /* =========================
    ADD TASK
 ========================= */
-
 .add-task {
   position: relative;
   padding: 1rem;
@@ -103,7 +101,6 @@
 }
 
 /* Date and time */
-
 .add-task-actions {
   display: flex;
   flex-direction: column;
@@ -116,12 +113,40 @@
   gap: 0.5rem;
 }
 
+.date-input-wrapper,
+.time-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Custom icons */
+.date-input-wrapper img,
+.time-input-wrapper img {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  width: 16px;
+  height: 16px;
+
+  opacity: 0.65;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Native date and time inputs */
 #task-date,
 #task-time {
+  appearance: auto;
+  -webkit-appearance: auto;
+
   width: 100%;
   min-width: 0;
   height: 48px;
-  padding: 0 0.65rem;
+
+  /* Mais espaço para o texto */
+  padding: 0 0.5rem 0 2.25rem;
 
   border: 1px solid transparent;
   border-radius: var(--radius-default);
@@ -130,7 +155,7 @@
   color: var(--text-primary);
 
   font-family: inherit;
-  font-size: 13px;
+  font-size: 12px;
 
   cursor: pointer;
   transition: border-color 0.2s ease;
@@ -142,14 +167,14 @@
   border-color: var(--color-secondary);
 }
 
+/* Ocultar somente os indicadores visuais nativos */
 #task-date::-webkit-calendar-picker-indicator,
 #task-time::-webkit-calendar-picker-indicator {
+  opacity: 0;
   cursor: pointer;
-  opacity: 0.65;
 }
 
 /* Add button */
-
 .add-task-button {
   display: flex;
   justify-content: center;
@@ -187,7 +212,6 @@
 /* =========================
    FILTERS
 ========================= */
-
 .task-filter {
   display: flex;
   flex-direction: column;
@@ -244,7 +268,6 @@
 }
 
 /* Clear tasks */
-
 .clear-tasks {
   display: flex;
   justify-content: flex-end;
@@ -279,7 +302,6 @@
 /* =========================
    TASK LIST
 ========================= */
-
 .tasks-list {
   width: 100%;
 }
@@ -323,7 +345,6 @@
 }
 
 /* Task content */
-
 .task-content {
   display: flex;
   align-items: flex-start;
@@ -376,7 +397,6 @@
 }
 
 /* Task information */
-
 .task-info {
   display: flex;
   flex-direction: column;
@@ -394,7 +414,6 @@
 }
 
 /* Date and time metadata */
-
 .task-meta {
   display: flex;
   align-items: center;
@@ -421,7 +440,6 @@
 }
 
 /* Task actions */
-
 .list-actions {
   display: flex;
   justify-content: flex-end;
@@ -457,7 +475,6 @@
 /* =========================
    FOOTER
 ========================= */
-
 .footer {
   display: flex;
   justify-content: flex-start;
@@ -500,7 +517,6 @@
 /* =========================
    INTERACTIONS
 ========================= */
-
 .add-task-button,
 .filter-options button,
 .clear-tasks-button,
@@ -534,7 +550,6 @@
 /* =========================
    MODAL
 ========================= */
-
 .edit-modal {
   position: fixed;
   inset: 0;
@@ -643,7 +658,6 @@
 /* =========================
    TABLET
 ========================= */
-
 @media (min-width: 768px) {
   .header-content {
     padding: 1.75rem 1.5rem;
